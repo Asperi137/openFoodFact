@@ -1,0 +1,19 @@
+{
+  "name": "openfoodfact",
+  "version": "1.0.0",
+  "description": "mon sit open food fact",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asperi137/openFoodFact.git"
+  },
+  "author": "Jerome CHAPUT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asperi137/openFoodFact/issues"
+  },
+  "homepage": "https://github.com/Asperi137/openFoodFact#readme"
+}
