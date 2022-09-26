@@ -53,28 +53,32 @@ boutonRechercher.addEventListener("click", async function (e) {
     
 
     const sucre = document.getElementById("sugars");
-    sucre.innerText = "Glucides : " + nutriments.sugars_100g + nutriments.sugars_unit + nutrimentlvl("sugars");
+    sucre.innerText = "Glucides : " + nutriments.sugars_100g + nutriments.sugars_unit + nutrimentlvl(produit, "sugars");
     
     const salt = document.getElementById("salt");
-    salt.innerText = "Sodium : " + nutriments.salt_100g + nutriments.salt_unit + nutrimentlvl("salt");
+    salt.innerText = "Sodium : " + nutriments.salt_100g + nutriments.salt_unit + nutrimentlvl(produit, "salt");
 
     const fat = document.getElementById("fat");
-		fat.innerText = "Lipides : " + nutriments.fat_100g + nutriments.fat_unit + nutrimentlvl("fat");
+		fat.innerText = "Lipides : " + nutriments.fat_100g + nutriments.fat_unit + nutrimentlvl(produit, "fat");
 
     const saturated = document.getElementById("saturated-fat");
     saturated.innerText =
 			"graisse saturés : " +
 			nutriments["saturated-fat_100g"] +
 			nutriments["saturated-fat_unit"] +
-			nutrimentlvl("saturated-fat");
-    
-    produit.product.nutrient_levels.saturated - fat;
-
-    
-    
+			nutrimentlvl(produit,"saturated-fat");
+        
 });
 
-function nutrimentlvl(nutriment) {
-    const level = produit.product.nutrient_levels[nutriment];
-    return level;
+function nutrimentlvl(produit,nutriment) {
+	const level = produit.product.nutrient_levels[nutriment];
+    switch (level) {
+			case "low":
+				return " 🟢";
+			case "moderate":
+				return " 🟠";
+			case "high":
+				return " 🔴";
+		}
+	return level;
 }

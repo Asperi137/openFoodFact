@@ -22,8 +22,8 @@ header{
 header img {
     display: flex;
     text-align: center;
-max-height: 200px;
-max-width: 200px;
+    max-height: 200px;
+    max-width: 200px;
     border-radius: 100%;
 
 }
@@ -34,6 +34,7 @@ main{
     flex-direction: column;
 }
 #recherche{
+    border-radius: 0.5em;
     text-align: center;
     align-items: center;
     color: maroon;
@@ -46,7 +47,8 @@ main{
     flex-direction: row; 
     flex-wrap: wrap;
 }
-#asideGauche{
+#info-produit{
+    border-radius: 0.5em;
     text-align: center;
     align-items: center;
     color: maroon;
@@ -64,6 +66,7 @@ img {
 }
 
 #corp{
+    border-radius: 0.5em;
     flex : 2;
     display: flex;
     flex-direction: column;
@@ -80,16 +83,27 @@ img {
     align-items: center;
 }
 #img-nutriscore{
-margin: 0.2em;
-max-height: 80px;
-width:auto;
+    margin: 0.2em;
+    max-height: 5em;
+    width:auto;
 }
 #img-nova{
     margin: 0.2em;
     align-items: center;
-    max-height: 50px;
+    max-height: 3em;
     width:auto;
 }
 summary {
     font-size: 1.2em;
+}
+
+footer{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 1em;
+    color: maroon;
+    background-color: white;
+    border-top-left-radius:  3em;
+    border-top-right-radius:  3em;
 }
