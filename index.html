@@ -5,23 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css" media="only screen" />
-    
     <title>Mon OFF</title>
 </head>
 <body>
-    <h1>Mon Open Food Fact</h1>
-    go sur l'api open food fact <br/>
-    <br/>
+    <header>
+        <img src="images/logoLegume.webp" alt="LOGO"/><h1>mON Open Food Fact</h1>
+    </header>
 
-    pour creer mon  My yuka <br/>
+    <main >
+        <div id="recherche"> 
+            <form action="" title="recherche">
+                <label for="search">Trouvez votre produit : </label><br/>
+                <input type="search" id="txt-search" placeholder="code barre" required>
+                <button type="submit" id="btn-search" >rechercher</button>
+            </form>
+        </div>
+        <div id="resultat">
+            <aside id="asideGauche">
+                <h2 id="nom-produit"></h2>
+                <p id="quantity"></p>
+                <details>
+                        <summary>afficher l'image</summary>
+                            <img src="images/logoLegume.webp" alt="image produit" id="img-produit"/>
+                </details>    
+                <p id="nom-producteur"></p>            
+            </aside>
+            <section id="corp" >
+                    <div id="score">
+                        <img src="images/nutriscoreX.jpg" alt="image nutriscore" id="img-nutriscore"/>
+                        <img src="images/nova1.jpg" alt="image groupe nova " id="img-nova"/>
+                    </div>
 
-
-    composition  <br/>
-
-    valeur nutritionnel  <br/>
-
-    nutriscore <br/>
-
+                    <details>
+                        <summary>Ingrédients</summary>
+                            <p id="ingredients" ></p>
+                    </details>
+                    <details>
+                        <summary>Information nutritionnelle</summary>
+                            <p id="nutrition">
+                                pour 100 g
+                                <p id="energy"></p>
+                                <p id="sugars"></p>
+                                <p id="salt"></p>
+                                <p id="fat"></p>
+                                <p id="saturated-fat">  </p>
+                            </p>
+                    </details>
+                    <details>
+                        <summary>Alergènes</summary>
+                            <p id="alergene" ></p>
+                    </details>
+            </section> 
+        </div> 
+    </main>
     <footer> 
         qui je suis <br/>
     </footer>
