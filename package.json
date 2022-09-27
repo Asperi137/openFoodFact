@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Asperi137/openFoodFact/issues"
   },
-  "homepage": "https://github.com/Asperi137/openFoodFact#readme"
+  "homepage": "https://github.com/Asperi137/openFoodFact#readme",
+  "dependencies": {
+    "sass": "^1.55.0"
+  }
 }

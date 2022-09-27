@@ -2,7 +2,8 @@ body {
     display: flex;
     flex-direction: column;
 	margin: auto;
-    background-color:teal;
+    background-color:maroon;
+    color: maroon;
 }
 
 header{
@@ -12,23 +13,20 @@ header{
 	padding: 1em;
 	text-align: center;
     align-items: center;
-	color: teal;
     background-color: white;
     border-bottom-left-radius:   20%;
     border-bottom-right-radius:   20%;
 }
 header img {
-    display: flex;
-    text-align: center;
     max-height: 10em;
     max-width: 10em;
     border-radius: 100%;
 
 }
 
-
 main{ 
     padding: 2em;
+    margin-bottom: 4em ;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -37,34 +35,50 @@ main{
     border-radius: 0.5em;
     text-align: center;
     align-items: center;
-    color: teal;
     background-color: white;
 	padding: 0.5em;
     margin: 0.2em;
-    border: 1px solid;
+    border: 0 solid;
+}
+input{
+    border-radius: 1em;
+    border:1px solid maroon;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0.5em;
+    text-align: center;
+}
+button{
+    border-radius: 1em;
+    color :white;
+    background-color: maroon;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin:  0.5em;
+    border:0;
+    text-align: center;
 }
 
 #resultat {
     display: flex;
     flex-direction: row; 
     flex-wrap: wrap;
+
 }
 #info-produit{
     border-radius: 0.5em;
     text-align: center;
     align-items: center;
-    color: teal;
     background-color: white;
 	padding: 0.5em;
     margin: 0.2em;
-    border: 1px solid;
+    border: 0 solid;
     flex : 1;
     min-width: 10em;
 }
 img {
-    display: flex;
-    text-align: center;
     width: 100%;
+    margin: 0.5em;
 }
 
 #corp{
@@ -73,12 +87,12 @@ img {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    color: teal;
     background-color: white;
     width: 100%;
 	padding: 0.5em;
     margin: 0.2em;
-    border: 1px solid;
+    border: 0 solid;
+    
 }
 #score{
     display: flex;
@@ -86,52 +100,33 @@ img {
     align-items: center;
     flex-wrap: wrap;
 }
-#img-nutriscore{
-    margin: 0.2em;
+.img-score{
+
     max-height: 5em;
     width:auto;
 }
-#img-nova{
-    margin: 0.2em;
-    align-items: center;
-    max-height: 3em;
-    width:auto;
-}
-#img-ecoscore{
-    margin: 0.2em;
-    max-height: 5em;
-    width:auto;
-}
+
 summary {
     font-size: 1.2em;
 }
 table {
     margin: 1em;
     border-collapse: collapse;
-    border: 1px solid teal;
+    border: 1px solid maroon;
+    text-align: left;
 }
 td {
-    padding: 1em;
+    padding: 0.5em;
     margin: 0;
-    border: 1px solid teal;
-    text-align: center;
+    border-bottom: 1px solid maroon;
 }
 
 footer{
     position: fixed;
     bottom: 0;
-    margin-top: 1em;
-    padding: 1em;
-    color: teal;
+    padding-right: 2em;
     background-color: white;
-    border-top-left-radius:  20%;
-    border-top-right-radius:   20%;
-    border:1px solid teal;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
 }
-a:link{
-    color : teal
-}
-a:visited{
-    color: black;
-    
-}
+a:link{color : maroon}
