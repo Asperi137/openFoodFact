@@ -117,7 +117,8 @@ main #resultat #corp table td {
 footer {
   position: fixed;
   bottom: 0;
-  padding-right: 2em;
+  padding-right: 1em;
+  padding-left: 1em;
   background-color: white;
   border-top-left-radius: 3em;
   border-top-right-radius: 3em;
@@ -127,4 +128,4 @@ a:link {
   color: teal;
 }
 
-/*# sourceMappingURL=indexSassTypescript.css.map */
+/*# sourceMappingURL=SassTS.css.map */

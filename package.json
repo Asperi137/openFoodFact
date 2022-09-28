@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Asperi137/openFoodFact#readme",
   "dependencies": {
     "sass": "^1.55.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
   }
 }

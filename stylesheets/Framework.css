@@ -1,132 +1,145 @@
 body {
     display: flex;
     flex-direction: column;
-	margin: auto;
-    background-color:maroon;
-    color: maroon;
+    margin: auto;
+    background-color: blue;
+    color: blue;
 }
 
-header{
+header {
     display: flex;
-	flex-direction: row;
-	margin-bottom: 1em;
-	padding: 1em;
-	text-align: center;
+    flex-direction: row;
+    margin-bottom: 1em;
+    padding: 1em;
+    text-align: center;
     align-items: center;
     background-color: white;
-    border-bottom-left-radius:   20%;
-    border-bottom-right-radius:   20%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
 }
+
 header img {
     max-height: 10em;
     max-width: 10em;
     border-radius: 100%;
-
 }
 
-main{ 
+main {
     padding: 2em;
-    margin-bottom: 4em ;
+    margin-bottom: 4em;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
-#recherche{
+
+#recherche {
     border-radius: 0.5em;
     text-align: center;
     align-items: center;
     background-color: white;
-	padding: 0.5em;
+    padding: 0.5em;
     margin: 0.2em;
     border: 0 solid;
 }
-input{
+
+input {
     border-radius: 1em;
-    border:1px solid maroon;
+    border: 1px solid blue;
     padding-left: 1em;
     padding-right: 1em;
     margin: 0.5em;
     text-align: center;
 }
-button{
+
+button {
     border-radius: 1em;
-    color :white;
-    background-color: maroon;
+    color: white;
+    background-color: blue;
     padding-left: 1em;
     padding-right: 1em;
-    margin:  0.5em;
-    border:0;
+    margin: 0.5em;
+    border: 0;
     text-align: center;
 }
 
 #resultat {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     flex-wrap: wrap;
 
 }
-#info-produit{
+
+#info-produit {
     border-radius: 0.5em;
     text-align: center;
     align-items: center;
     background-color: white;
-	padding: 0.5em;
+    padding: 0.5em;
     margin: 0.2em;
     border: 0 solid;
-    flex : 1;
+    flex: 1;
     min-width: 10em;
 }
+
 img {
-    width: 100%;
-    margin: 0.5em;
+    width: 90%;
+    margin: 1em;
 }
 
-#corp{
+#corp {
     border-radius: 0.5em;
-    flex : 2;
+    flex: 2;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     background-color: white;
     width: 100%;
-	padding: 0.5em;
+    padding: 0.5em;
     margin: 0.2em;
     border: 0 solid;
-    
+
 }
-#score{
+
+#score {
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
 }
-.img-score{
+
+.img-score {
 
     max-height: 5em;
-    width:auto;
+    width: auto;
 }
 
 summary {
     font-size: 1.2em;
 }
+
 table {
     margin: 1em;
     border-collapse: collapse;
-    border: 1px solid maroon;
+    border: 1px solid blue;
     text-align: left;
 }
+
 td {
     padding: 0.5em;
     margin: 0;
-    border-bottom: 1px solid maroon;
+    border-bottom: 1px solid blue;
 }
 
-footer{
+footer {
     position: fixed;
     bottom: 0;
-    padding-right: 2em;
+    padding-right: 1em;
+    padding-left: 1em;
     background-color: white;
     border-top-left-radius: 3em;
     border-top-right-radius: 3em;
 }
-a:link{color : maroon}
+
+a:link {
+    color: blue
+}
