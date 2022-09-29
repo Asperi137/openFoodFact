@@ -3,11 +3,9 @@ const boutonRechercher = document.querySelector("#btn-search");
 ;
 boutonRechercher.addEventListener("click", async function (e) {
     e.preventDefault();
-    //récupération des données pour les afficher
+    //récupération des données
     const search = document.getElementById("txt-search");
     const codeBarre = search.value;
-    //requete = "json/3017620424403.json";
-    //requete = "json/3083681081534.json";
     const requete = "https://world.openfoodfacts.org/api/v2/product/" + codeBarre;
     const produit = await fetch(requete).then((produit) => produit.json());
     //affichage de l'image du produit

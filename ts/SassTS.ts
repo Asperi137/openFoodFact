@@ -1,11 +1,9 @@
 const boutonRechercher = document.querySelector("#btn-search") as HTMLButtonElement;;
 boutonRechercher.addEventListener("click", async function (e) {
 	e.preventDefault();
-	//récupération des données pour les afficher
+	//récupération des données
 	const search = document.getElementById("txt-search") as HTMLInputElement;
 	const codeBarre:String = search.value;
-	//requete = "json/3017620424403.json";
-	//requete = "json/3083681081534.json";
 	const requete = "https://world.openfoodfacts.org/api/v2/product/" + codeBarre;
 	const produit = await fetch(requete).then((produit) => produit.json());
 
@@ -141,8 +139,8 @@ boutonRechercher.addEventListener("click", async function (e) {
 });
 
 //fonction qui retourn les pastils en fonction du niveau
-function nutrimentlvl(produit: any, nutriment: string) {
-	const level = produit.product.nutrient_levels[nutriment];
+function nutrimentlvl(produit: any, nutriment: string) : String {
+	const level : String = produit.product.nutrient_levels[nutriment];
 	switch (level) {
 		case "low":
 			return " 🟢";
