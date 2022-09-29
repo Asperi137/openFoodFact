@@ -1,18 +1,38 @@
-body {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
+#recherche {
+  border-radius: 0.5em;
+  background-color: white;
+  padding: 0.5em;
+  margin: 0.2em;
+  border: 0 solid;
+  text-align: center;
+  align-items: center;
+}
+#recherche input {
+  border-radius: 1em;
+  border: 1px solid teal;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0.5em;
+  text-align: center;
+}
+#recherche button {
+  border-radius: 1em;
+  color: white;
   background-color: teal;
-  color: teal;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0.5em;
+  border: 0;
+  text-align: center;
 }
 
 header {
+  text-align: center;
+  align-items: center;
   display: flex;
   flex-direction: row;
   margin-bottom: 1em;
   padding: 1em;
-  text-align: center;
-  align-items: center;
   background-color: white;
   border-bottom-left-radius: 20%;
   border-bottom-right-radius: 20%;
@@ -23,98 +43,6 @@ header img {
   border-radius: 100%;
 }
 
-main {
-  padding: 2em;
-  margin-bottom: 6em;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-main #recherche {
-  border-radius: 0.5em;
-  text-align: center;
-  align-items: center;
-  background-color: white;
-  padding: 0.5em;
-  margin: 0.2em;
-  border: 0 solid;
-}
-main #recherche input {
-  border-radius: 1em;
-  border: 1px solid teal;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin: 0.5em;
-  text-align: center;
-}
-main #recherche button {
-  border-radius: 1em;
-  color: white;
-  background-color: teal;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin: 0.5em;
-  border: 0;
-  text-align: center;
-}
-main #resultat {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-main #resultat #info-produit {
-  border-radius: 0.5em;
-  text-align: center;
-  align-items: center;
-  background-color: white;
-  padding: 0.5em;
-  margin: 0.2em;
-  border: 0 solid;
-  flex: 1;
-  min-width: 10em;
-}
-main #resultat #info-produit img {
-  width: 90%;
-  margin: 0.5em;
-  border-radius: 10%;
-}
-main #resultat #corp {
-  border-radius: 0.5em;
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  background-color: white;
-  width: 100%;
-  padding: 0.5em;
-  margin: 0.2em;
-  border: 0 solid;
-}
-main #resultat #corp #score {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-}
-main #resultat #corp #score .img-score {
-  max-height: 5em;
-  width: auto;
-}
-main #resultat #corp summary {
-  font-size: 1.2em;
-}
-main #resultat #corp table {
-  margin: 1em;
-  border-collapse: collapse;
-  border: 1px solid teal;
-  text-align: left;
-}
-main #resultat #corp table td {
-  padding: 0.5em;
-  margin: 0;
-  border-bottom: 1px solid teal;
-}
-
 footer {
   position: fixed;
   bottom: 0;
@@ -122,6 +50,79 @@ footer {
   background-color: white;
   border-top-left-radius: 3em;
   border-top-right-radius: 3em;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background-color: teal;
+  color: teal;
+}
+
+main {
+  padding: 2em;
+  margin-bottom: 6em;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+main #resultat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+main #resultat aside {
+  border-radius: 0.5em;
+  background-color: white;
+  padding: 0.5em;
+  margin: 0.2em;
+  border: 0 solid;
+  text-align: center;
+  align-items: center;
+  flex: 1;
+  min-width: 10em;
+}
+main #resultat img {
+  width: 90%;
+  margin: 0.5em;
+  border-radius: 10%;
+}
+main #resultat section {
+  border-radius: 0.5em;
+  background-color: white;
+  padding: 0.5em;
+  margin: 0.2em;
+  border: 0 solid;
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  flex-wrap: wrap;
+  width: 100%;
+}
+main #resultat section #score {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+main #resultat section #score img {
+  max-height: 5em;
+  width: auto;
+}
+main #resultat summary {
+  font-size: 1.2em;
+}
+main #resultat table {
+  margin: 1em;
+  border-collapse: collapse;
+  border: 1px solid teal;
+  text-align: left;
+}
+main #resultat table td {
+  padding: 0.5em;
+  margin: 0;
+  border-bottom: 1px solid teal;
 }
 
 a:link {

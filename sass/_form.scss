@@ -1,0 +1,24 @@
+#recherche {
+    @include block;
+    @include alignCenter;
+
+    input {
+        border-radius: 1em;
+        border: 1px solid $main;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin: 0.5em;
+        text-align: center;
+    }
+
+    button {
+        border-radius: 1em;
+        color: $secondary;
+        background-color: $main;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin: 0.5em;
+        border: 0;
+        text-align: center;
+    }
+}

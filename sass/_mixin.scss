@@ -1,0 +1,22 @@
+@mixin block {
+    border-radius: 0.5em;
+    background-color: $secondary;
+    padding: 0.5em;
+    margin: 0.2em;
+    border: 0 solid;
+}
+
+@mixin alignCenter {
+    text-align: center;
+    align-items: center;
+}
+
+@mixin flexColone {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexligne {
+    display: flex;
+    flex-direction: row;
+}

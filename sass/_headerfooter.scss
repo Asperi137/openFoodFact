@@ -1,0 +1,24 @@
+header {
+    @include alignCenter;
+    @include flexligne;
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: $secondary;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+
+    img {
+        max-height: 10em;
+        max-width: 10em;
+        border-radius: 100%;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    margin: 1em;
+    background-color: $secondary;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+}
