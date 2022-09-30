@@ -20,3 +20,11 @@
     display: flex;
     flex-direction: row;
 }
+
+@mixin styleInput {
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0.5em;
+    text-align: center;
+}

@@ -1,14 +1,10 @@
 body {
-    display: flex;
-    flex-direction: column;
     margin: auto;
-    background-color: blue;
-    color: blue;
+    background-color: darkgreen;
+    color: darkgreen;
 }
 
 header {
-    display: flex;
-    flex-direction: row;
     margin-bottom: 1em;
     padding: 1em;
     text-align: center;
@@ -27,24 +23,20 @@ header img {
 main {
     padding: 2em;
     margin-bottom: 4em;
-    display: flex;
-    flex-direction: column;
     height: 100%;
 }
 
 #recherche {
-    border-radius: 0.5em;
+    border-radius: 1em;
     text-align: center;
     align-items: center;
     background-color: white;
-    padding: 0.5em;
-    margin: 0.2em;
-    border: 0 solid;
+    border: 0.5em solid darkgreen;
 }
 
 input {
     border-radius: 1em;
-    border: 1px solid blue;
+    border: 1px solid darkgreen;
     padding-left: 1em;
     padding-right: 1em;
     margin: 0.5em;
@@ -54,7 +46,7 @@ input {
 button {
     border-radius: 1em;
     color: white;
-    background-color: blue;
+    background-color: darkgreen;
     padding-left: 1em;
     padding-right: 1em;
     margin: 0.5em;
@@ -62,23 +54,14 @@ button {
     text-align: center;
 }
 
-#resultat {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 
-}
 
 #info-produit {
-    border-radius: 0.5em;
+    border-radius: 1em;
     text-align: center;
     align-items: center;
     background-color: white;
-    padding: 0.5em;
-    margin: 0.2em;
-    border: 0 solid;
-    flex: 1;
-    min-width: 10em;
+    border: 0.5em solid darkgreen;
 }
 
 img {
@@ -87,24 +70,13 @@ img {
 }
 
 #corp {
-    border-radius: 0.5em;
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    border-radius: 1em;
     background-color: white;
-    width: 100%;
-    padding: 0.5em;
-    margin: 0.2em;
-    border: 0 solid;
-
+    border: 0.5em solid darkgreen;
 }
 
 #score {
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .img-score {
@@ -120,26 +92,25 @@ summary {
 table {
     margin: 1em;
     border-collapse: collapse;
-    border: 1px solid blue;
+    border: 1px solid darkgreen;
     text-align: left;
 }
 
 td {
     padding: 0.5em;
     margin: 0;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid darkgreen;
 }
 
 footer {
     position: fixed;
     bottom: 0;
-    padding-right: 1em;
-    padding-left: 1em;
+    padding-right: 2em;
     background-color: white;
     border-top-left-radius: 3em;
     border-top-right-radius: 3em;
 }
 
 a:link {
-    color: blue
+    color: darkgreen
 }

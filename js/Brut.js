@@ -8,8 +8,9 @@ boutonRechercher.addEventListener("click", async function (e) {
 	if (/\d{8,13}/.test(codeBarre)) {
 		produit = await fetch(requete).then((produit) => produit.json());
 	} else {
-		document.getElementById("txt-search").value = "code barre non valide"
+		document.getElementById("txt-search").value = "code barre non valide";
 	}
+	//si le produit existe on modifie les champs
 	if (produit) {
 		//affichage de l'image du produit
 		const imageProduit = document.getElementById("img-produit");
@@ -53,9 +54,7 @@ boutonRechercher.addEventListener("click", async function (e) {
 		//affichage de l'eco-score du produit
 		const imgEcoscore = document.getElementById("img-ecoscore");
 		imgEcoscore.src = "images/ecoscore-na.svg";
-		if (
-			produit.product.ecoscore_grade && /[a,b,c,d,e]/.test(produit.product.ecoscore_grade)
-		) {
+		if (produit.product.ecoscore_grade && /[a,b,c,d,e]/.test(produit.product.ecoscore_grade)) {
 			imgEcoscore.src = "images/ecoscore-" + produit.product.ecoscore_grade + ".svg";
 		}
 
@@ -65,8 +64,7 @@ boutonRechercher.addEventListener("click", async function (e) {
 			ingredients.innerText = produit.product.ingredients_text_fr;
 		} else if (produit.product.ingredients_text) {
 			ingredients.innerText = produit.product.ingredients_text;
-		};
-	
+		}
 
 		//affichage des alergènes du produit
 		const alergenes = document.getElementById("alergene");
@@ -83,7 +81,7 @@ boutonRechercher.addEventListener("click", async function (e) {
 
 		//affichage des nutriment pour 100g avec le "niveau" sous forme de pastil de couleur
 		const nutriments = produit.product.nutriments;
-	
+
 		//Calories
 		const energy = document.getElementById("energy");
 		if (nutriments["energy-kcal_100g"] && nutriments["energy-kcal_unit"]) {
@@ -103,7 +101,7 @@ boutonRechercher.addEventListener("click", async function (e) {
 				nutrimentlvl(produit, "sugars") +
 				"</td>";
 		}
-	
+
 		//Sodium
 		const salt = document.getElementById("salt");
 		if (nutriments.salt_100g && nutriments.salt_unit && produit.product.nutrient_levels.salt) {
@@ -115,7 +113,7 @@ boutonRechercher.addEventListener("click", async function (e) {
 				nutrimentlvl(produit, "salt") +
 				"</td>";
 		}
-	
+
 		//Lipides
 		const fat = document.getElementById("fat");
 		if (nutriments.fat_100g && nutriments.fat_unit && produit.product.nutrient_levels.fat) {
@@ -127,10 +125,14 @@ boutonRechercher.addEventListener("click", async function (e) {
 				nutrimentlvl(produit, "fat") +
 				"</td>";
 		}
-	
+
 		//graisse saturés
 		const saturated = document.getElementById("saturated-fat");
-		if (nutriments["saturated-fat_100g"] && nutriments["saturated-fat_unit"] && produit.product.nutrient_levels["saturated-fat"]) {
+		if (
+			nutriments["saturated-fat_100g"] &&
+			nutriments["saturated-fat_unit"] &&
+			produit.product.nutrient_levels["saturated-fat"]
+		) {
 			saturated.innerHTML =
 				"<td>Acide gras saturés : </td><td>" +
 				nutriments["saturated-fat_100g"] +
@@ -143,16 +145,15 @@ boutonRechercher.addEventListener("click", async function (e) {
 });
 
 //fonction qui retourn les pastils en fonction du niveau
-function nutrimentlvl(produit,nutriment) {
+function nutrimentlvl(produit, nutriment) {
 	const level = produit.product.nutrient_levels[nutriment];
-    switch (level) {
-			case "low":
-				return " 🟢";
-			case "moderate":
-				return " 🟠";
-			case "high":
-				return " 🔴";
-		}
+	switch (level) {
+		case "low":
+			return " 🟢";
+		case "moderate":
+			return " 🟠";
+		case "high":
+			return " 🔴";
+	}
 	return level;
 }
-

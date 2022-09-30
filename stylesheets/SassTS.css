@@ -1,4 +1,4 @@
-#recherche {
+form {
   border-radius: 0.5em;
   background-color: white;
   padding: 0.5em;
@@ -7,23 +7,24 @@
   text-align: center;
   align-items: center;
 }
-#recherche input {
+form input {
   border-radius: 1em;
-  border: 1px solid teal;
   padding-left: 1em;
   padding-right: 1em;
   margin: 0.5em;
   text-align: center;
+  border: 1px solid teal;
+  margin: 0.5em;
 }
-#recherche button {
+form button {
   border-radius: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0.5em;
+  text-align: center;
   color: white;
   background-color: teal;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin: 0.5em;
   border: 0;
-  text-align: center;
 }
 
 header {

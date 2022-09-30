@@ -1,72 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/Framework.css" media="only screen" />
-    <title>ON OFF</title>
-</head>
-<body>
-    <header id="haut">
-        <img src="images/logoLegume.webp" alt="LOGO" />
-        <h1>ON Open Food Fact</h1>
-        <p>"avec framework"</p>
-    </header>
-    
-    <main>
-        <div id="recherche">
-            <form action="" title="recherche">
-                <label for="search">Trouvez votre produit : </label><br />
-                <input type="search" id="txt-search" placeholder="code barre" maxlength="13" required>
-                <button type="submit" id="btn-search">rechercher</button>
-            </form>
-        </div>
-        <div id="resultat">
-            <aside id="info-produit">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="stylesheets/Framework.css" media="only screen" />
+        <title>ON OFF</title>
+    </head>
+    <body class="container ">
+        <header class="row py-0" id="haut">
+            <div class="col-3">
+                <img src="images/logoLegume.webp" alt="LOGO" />
+            </div>
+            <div class="col-9 align-self-center" id="title">
+                <h1>ON Open Food Fact</h1>
+            </div>
+        </header>
+
+        <main class="row">
+            <div class="col-12" id="recherche">
+                <form action="" title="recherche">
+                    <label for="search">Trouvez votre produit : </label><br />
+                    <input type="search" id="txt-search" placeholder="code barre" maxlength="13" required />
+                    <button type="submit" id="btn-search">
+                        rechercher
+                    </button>
+                </form>
+            </div>
+            <div class="col-12 col-md-3 col-xl-2" id="info-produit">
                 <h2 id="nom-produit"></h2>
                 <p id="nom-producteur"></p>
-    
                 <details open>
                     <summary id="quantity"></summary>
                     <img src="images/logoLegume.webp" alt="image produit" id="img-produit" />
                 </details>
-            </aside>
-            <section id="corp">
-                <div id="score">
-                    <img src="images/nutriscoreX.jpg" alt="image nutriscore" id="img-nutriscore" class="img-score" />
-                    <img src="images/nova1.jpg" alt="image groupe nova " id="img-nova" class="img-score" />
-                    <img src="images/ecoscore-na.svg" alt="image Ecoscore " id="img-ecoscore" class="img-score" />
-                </div>
-    
-                <details open>
-                    <summary>Ingrédients</summary>
-                    <p id="ingredients"></p>
-                </details>
-                <details open>
-                    <summary>Information nutritionnelle pour 100g</summary>
-                    <table id="nutrition">
-                        <tr id="energy"></tr>
-                        <tr id="sugars"></tr>
-                        <tr id="salt"></tr>
-                        <tr id="fat"></tr>
-                        <tr id="saturated-fat"></tr>
-                    </table>
-                </details>
-                <details open>
-                    <summary>Alergènes</summary>
-                    <p id="alergene"></p>
-                </details>
-            </section>
-        </div>
-    </main>
-    <footer>
-        <ul>
-            <li><a href="index.html">Menu principale</a></li>
-            <li> <a href="#haut">Haut de page </a></li>
-        </ul>
-        <p>réaliser avec Bootstrap et jquery</p>
-    </footer>
-<script src="./js/Framework.js"></script>
-</body>
+            </div>
+            <div id="corp" class="col-12 col-md-9 col-xl-10">
+                <section>
+                    <div id="score">
+                        <img src="images/nutriscoreX.jpg" alt="image nutriscore" id="img-nutriscore"
+                            class="img-score" />
+                        <img src="images/nova1.jpg" alt="image groupe nova " id="img-nova" class="img-score" />
+                        <img src="images/ecoscore-na.svg" alt="image Ecoscore " id="img-ecoscore" class="img-score" />
+                    </div>
+
+                    <details open>
+                        <summary>Ingrédients</summary>
+                        <p id="ingredients"></p>
+                    </details>
+                    <details open>
+                        <summary>Information nutritionnelle pour 100g</summary>
+                        <table id="nutrition">
+                            <tr id="energy"></tr>
+                            <tr id="sugars"></tr>
+                            <tr id="salt"></tr>
+                            <tr id="fat"></tr>
+                            <tr id="saturated-fat"></tr>
+                        </table>
+                    </details>
+                    <details open>
+                        <summary>Alergènes</summary>
+                        <p id="alergene"></p>
+                    </details>
+                </section>
+            </div>
+
+        </main>
+        <footer>
+            <ul>
+                <li><a href="index.html">Menu principale</a></li>
+                <li><a href="#haut">Haut de page </a></li>
+            </ul>
+            <p>réaliser avec Bootstrap et jquery</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="./js/Framework.js"></script>
+    </body>
 </html>
