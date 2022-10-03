@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Asperi137/openFoodFact#readme",
   "dependencies": {
+    "eslint": "^8.24.0",
     "sass": "^1.55.0"
   },
   "devDependencies": {
