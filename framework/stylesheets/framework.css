@@ -1,28 +1,24 @@
 body {
-    margin: auto;
     background-color: darkgreen;
     color: darkgreen;
 }
 
 header {
-    margin-bottom: 1em;
-    padding: 1em;
-    text-align: center;
-    align-items: center;
     background-color: white;
-    border-bottom-left-radius: 20%;
-    border-bottom-right-radius: 20%;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+
 }
 
 header img {
-    max-height: 10em;
-    max-width: 10em;
+    max-height: 9em;
+    max-width: 9em;
     border-radius: 100%;
 }
 
 main {
     padding: 2em;
-    margin-bottom: 4em;
+    margin-bottom: 5em;
     height: 100%;
 }
 
@@ -62,25 +58,17 @@ button {
     align-items: center;
     background-color: white;
     border: 0.5em solid darkgreen;
-}
 
-img {
-    width: 90%;
-    margin: 1em;
 }
 
 #corp {
+    padding: 1em;
     border-radius: 1em;
     background-color: white;
     border: 0.5em solid darkgreen;
 }
 
-#score {
-    align-items: center;
-}
-
 .img-score {
-
     max-height: 5em;
     width: auto;
 }
@@ -90,25 +78,23 @@ summary {
 }
 
 table {
-    margin: 1em;
     border-collapse: collapse;
     border: 1px solid darkgreen;
     text-align: left;
 }
 
 td {
-    padding: 0.5em;
-    margin: 0;
     border-bottom: 1px solid darkgreen;
 }
 
 footer {
     position: fixed;
     bottom: 0;
-    padding-right: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
     background-color: white;
-    border-top-left-radius: 3em;
-    border-top-right-radius: 3em;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
 }
 
 a:link {

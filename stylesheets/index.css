@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: black;
+    color: black;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+    padding: 1em;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+}
+
+header img {
+    max-height: 10em;
+    max-width: 10em;
+    border-radius: 100%;
+}
+
+main {
+    padding: 2em;
+    margin-bottom: 4em;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#recherche {
+    border-radius: 0.5em;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    padding: 0.5em;
+    margin: 0.2em;
+    border: 0 solid;
+}

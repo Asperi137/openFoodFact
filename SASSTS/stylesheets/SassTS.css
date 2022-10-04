@@ -47,7 +47,8 @@ header img {
 footer {
   position: fixed;
   bottom: 0;
-  margin: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
   background-color: white;
   border-top-left-radius: 3em;
   border-top-right-radius: 3em;

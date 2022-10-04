@@ -22,7 +22,7 @@ $("#btn-search").click(async function (e) {
 const afficherProduit = function (produit) {
 	//affichage de l'image du produit
 	const imageProduit = $("#img-produit");
-	imageProduit.attr("src", "images/logoLegume.webp");
+	imageProduit.attr("src", "../images/logoLegume.webp");
 	if (produit.product.image_url) {
 		imageProduit.attr("src", produit.product.image_url);
 	}
@@ -47,29 +47,23 @@ const afficherProduit = function (produit) {
 
 	//affichage du nutriscore du produit
 	const imageNutriscore = $("#img-nutriscore");
-	imageNutriscore.attr("src", "images/nutriscoreX.jpg");
+	imageNutriscore.attr("src", "../images/nutriscoreX.jpg");
 	if (produit.product.nutriscore_grade && /[a,b,c,d,e]/.test(produit.product.nutriscore_grade)) {
-		imageNutriscore.attr("src", "images/nutriscore-" + produit.product.nutriscore_grade + ".svg");
-	} else {
-		imageNutriscore.attr("src", "images/nutriscore-X.svg");
+		imageNutriscore.attr("src", "../images/nutriscore-" + produit.product.nutriscore_grade + ".svg");
 	}
 
 	//affichage du groupe nova du produit
 	const imageNova = $("#img-nova");
-	imageNova.attr("src", "images/nova1.jpg");
+	imageNova.attr("src", "../images/nova1.jpg");
 	if (produit.product.nova_group && /[1,2,3,4]/.test(produit.product.nova_group)) {
-		imageNova.attr("src", "images/nova" + produit.product.nova_group + ".svg");
-	} else {
-		imageNova.attr("src", "images/novaX.svg");
+		imageNova.attr("src", "../images/nova" + produit.product.nova_group + ".svg");
 	}
 
 	//affichage de l'eco-score du produit
 	const imgEcoscore = $("#img-ecoscore");
-	imgEcoscore.attr("src", "images/ecoscore-na.svg");
+	imgEcoscore.attr("src", "../images/ecoscore-na.svg");
 	if (produit.product.ecoscore_grade && /[a,b,c,d,e]/.test(produit.product.ecoscore_grade)) {
-		imgEcoscore.attr("src", "images/ecoscore-" + produit.product.ecoscore_grade + ".svg");
-	} else {
-		imgEcoscore.attr("src", "images/ecoscore-X.svg");
+		imgEcoscore.attr("src", "../images/ecoscore-" + produit.product.ecoscore_grade + ".svg");
 	}
 
 	//affichage des ingrédients du produit

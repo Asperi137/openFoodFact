@@ -2,8 +2,8 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"watch": true,
-		"outDir": "js",
-		"strict": true,
+		"outDir": "SASSTS/js",
+		"strict": true
 	},
-	"files": ["ts/SassTS.ts"]
+	"files": ["SASSTS/ts/SassTS.ts"]
 }
