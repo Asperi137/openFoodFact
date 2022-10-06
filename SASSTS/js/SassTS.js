@@ -1,6 +1,5 @@
 "use strict";
 const regexScoreLettre = /[a,b,c,d,e]/;
-const regexScoreChiffre = /[1,2,3,4]/;
 class Produit {
     img = "../images/logoLegume.webp";
     nom = "";
@@ -38,66 +37,56 @@ class Produit {
             }
             if (resultat.product.allergens_tags) {
                 const alergenesLst = resultat.product.allergens_tags;
-                console.log(alergenesLst);
                 let listAlergenes = "";
                 for (let element of alergenesLst) {
                     listAlergenes += element.substring(3) + ", ";
                 }
-                console.log(listAlergenes);
                 this.alergenes = listAlergenes;
             }
             if (resultat.product.nutriscore_grade && regexScoreLettre.test(resultat.product.nutriscore_grade)) {
                 this.nutriscore = "../images/nutriscore-" + resultat.product.nutriscore_grade + ".svg";
             }
-            if (resultat.product.nova_group && regexScoreChiffre.test(resultat.product.nova_group)) {
+            if (resultat.product.nova_group && resultat.product.nova_group <= 4 && resultat.product.nova_group >= 1) {
                 this.nova = "../images/nova" + resultat.product.nova_group + ".svg";
             }
             if (resultat.product.ecoscore_grade && regexScoreLettre.test(resultat.product.ecoscore_grade)) {
                 this.ecoscore = "../images/ecoscore-" + resultat.product.ecoscore_grade + ".svg";
             }
-            const nutriments = resultat.product.nutriments;
-            if (nutriments["energy-kcal_100g"] && nutriments["energy-kcal_unit"]) {
-                const energie100g = nutriments["energy-kcal_100g"];
+            if (resultat.product["energy-kcal_100g"]) {
+                const energie100g = resultat.product["energy-kcal_100g"];
                 const ajr = " (" + energie100g / 20 + "% des AJR)";
-                this.energy =
-                    "<td>Calories : </td><td>" + energie100g + nutriments["energy-kcal_unit"] + "</td><td>" + ajr + "</td>";
+                this.energy = "<td>Calories : </td><td>" + energie100g + " kcal</td><td>" + ajr + "</td>";
             }
-            if (nutriments.sugars_100g && nutriments.sugars_unit && resultat.product.nutrient_levels.sugars) {
+            if (resultat.product.sugars_100g && resultat.product.nutrient_levels.sugars) {
                 this.sugars =
                     "<td>Glucides : </td><td>" +
-                        nutriments.sugars_100g +
-                        nutriments.sugars_unit +
-                        "</td><td>" +
-                        this.nutrimentlvl(resultat, "sugars") +
+                        resultat.product.sugars_100g +
+                        " g</td><td>" +
+                        this.nutrimentlvl(resultat.product.nutrient_levels.sugars) +
                         "</td>";
             }
-            if (nutriments.salt_100g && nutriments.salt_unit && resultat.product.nutrient_levels.salt) {
+            if (resultat.product.salt_100g && resultat.product.nutrient_levels.salt) {
                 this.salt =
                     "<td>Sodium : </td><td>" +
-                        nutriments.salt_100g +
-                        nutriments.salt_unit +
-                        "</td><td>" +
-                        this.nutrimentlvl(resultat, "salt") +
+                        resultat.product.salt_100g +
+                        " g</td><td>" +
+                        this.nutrimentlvl(resultat.product.nutrient_levels.salt) +
                         "</td>";
             }
-            if (nutriments.fat_100g && nutriments.fat_unit && resultat.product.nutrient_levels.fat) {
+            if (resultat.product.fat_100g && resultat.product.nutrient_levels.fat) {
                 this.fat =
                     "<td>Lipides :  </td><td>" +
-                        nutriments.fat_100g +
-                        nutriments.fat_unit +
-                        "</td><td>" +
-                        this.nutrimentlvl(resultat, "fat") +
+                        resultat.product.fat_100g +
+                        " g</td><td>" +
+                        this.nutrimentlvl(resultat.product.nutrient_levels.fat) +
                         "</td>";
             }
-            if (nutriments["saturated-fat_100g"] &&
-                nutriments["saturated-fat_unit"] &&
-                resultat.product.nutrient_levels["saturated-fat"]) {
+            if (resultat.product["saturated-fat_100g"] && resultat.product.nutrient_levels["saturated-fat"]) {
                 this.satured =
                     "<td>Acide gras saturés : </td><td>" +
-                        nutriments["saturated-fat_100g"] +
-                        nutriments["saturated-fat_unit"] +
-                        "</td><td>" +
-                        this.nutrimentlvl(resultat, "saturated-fat") +
+                        resultat.product["saturated-fat_100g"] +
+                        " g</td><td>" +
+                        this.nutrimentlvl(resultat.product.nutrient_levels["saturated-fat"]) +
                         "</td>";
             }
         }
@@ -139,8 +128,7 @@ class Produit {
         saturated.innerHTML = this.satured;
     }
     //fonction qui retourn les pastils en fonction du niveau
-    nutrimentlvl(produit, nutriment) {
-        const level = produit.product.nutrient_levels[nutriment];
+    nutrimentlvl(level) {
         switch (level) {
             case "low":
                 return " 🟢";
@@ -157,11 +145,19 @@ boutonRechercher?.addEventListener("click", async function (e) {
     e.preventDefault();
     const search = document.getElementById("txt-search");
     const codeBarre = search.value;
-    const requete = "https://world.openfoodfacts.org/api/v2/product/" + codeBarre;
+    const requete = "https://world.openfoodfacts.org/api/v2/product/" +
+        codeBarre +
+        ".json?fields=allergens_tags,brands,nutriscore_grade,ecoscore_grade,image_url,ingredients_text,ingredients_text_fr,nova_group," +
+        "energy-kcal_100g,sugars_100g,salt_100g,fat_100g,saturated-fat_100g,product_name,quantity,nutrient_levels";
     if (/\d{8,13}/.test(codeBarre)) {
-        const resultat = await fetch(requete).then((res) => res.json());
-        const prod = new Produit(resultat);
-        prod.afficherProduit();
+        await fetch(requete)
+            .then(function (response) {
+            return response.json();
+        })
+            .then(function (response) {
+            const prod = new Produit(response);
+            prod.afficherProduit();
+        });
     }
     else {
         search.value = "code barre non valide";
