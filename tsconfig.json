@@ -4,6 +4,5 @@
 		"watch": true,
 		"outDir": "SASSTS/js",
 		"strict": true
-	},
-	"files": ["SASSTS/ts/SassTS.ts"]
+	}
 }

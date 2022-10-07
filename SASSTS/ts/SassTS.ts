@@ -21,6 +21,6 @@ boutonRechercher?.addEventListener("click", async function (e) {
 				prod.afficherProduit();
 			});
 	} else {
-		search.value = "code barre non valide";
+		alert("code barre non valide");
 	}
 });

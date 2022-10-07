@@ -19,6 +19,6 @@ boutonRechercher?.addEventListener("click", async function (e) {
         });
     }
     else {
-        search.value = "code barre non valide";
+        alert("code barre non valide");
     }
 });
