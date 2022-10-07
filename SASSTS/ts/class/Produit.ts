@@ -1,4 +1,4 @@
-import { ProductData } from "./type";
+import { ProductData } from "../type/ProductData";
 
 export class Produit {
 	img: string = "../images/logoLegume.webp";

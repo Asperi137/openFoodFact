@@ -1,4 +1,4 @@
-import { Produit } from "./class.js";
+import { Produit } from "./class/Produit.js";
 const boutonRechercher = document.querySelector("#btn-search");
 boutonRechercher?.addEventListener("click", async function (e) {
     e.preventDefault();

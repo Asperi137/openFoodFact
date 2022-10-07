@@ -1,5 +1,5 @@
-import { ProductData } from "./type.js";
-import { Produit } from "./class.js";
+import { ProductData } from "./type/ProductData.js";
+import { Produit } from "./class/Produit.js";
 
 const boutonRechercher: HTMLButtonElement | null = document.querySelector<HTMLButtonElement>("#btn-search");
 boutonRechercher?.addEventListener("click", async function (e) {
