@@ -9,7 +9,7 @@
     </head>
     <body>
         <header id="haut">
-            <img src="../images/logoLegume.webp" alt="LOGO" />
+            <img src="/images/logoLegume.webp" alt="LOGO" />
             <h1>ON Open Food Fact</h1>
 
         </header>
@@ -21,27 +21,22 @@
                 <button type="submit" id="btn-search">rechercher</button>
             </form>
             <div id="resultat">
-                <aside id="info-produit">
+                <div id="info-produit">
                     <h2 id="nom-produit"></h2>
                     <p id="nom-producteur"></p>
 
                     <details open>
                         <summary id="quantity"></summary>
-                        <img src="../images/logoLegume.webp" alt="image produit" id="img-produit" />
+                        <img src="/images/logoLegume.webp" alt="image produit" id="img-produit" />
                     </details>
-                </aside>
+                </div>
                 <section id="corp">
                     <div id="score">
-                        <img src="../images/nutriscore-X.svg" alt="image nutriscore" id="img-nutriscore"
+                        <img src="/images/nutriscore-X.svg" alt="image nutriscore" id="img-nutriscore"
                             class="img-score" />
-                        <img src="../images/novaX.svg" alt="image groupe nova " id="img-nova" class="img-score" />
-                        <img src="../images/ecoscore-X.svg" alt="image Ecoscore " id="img-ecoscore" class="img-score" />
+                        <img src="/images/novaX.svg" alt="image groupe nova " id="img-nova" class="img-score" />
+                        <img src="/images/ecoscore-X.svg" alt="image Ecoscore " id="img-ecoscore" class="img-score" />
                     </div>
-
-                    <details open>
-                        <summary>Ingrédients</summary>
-                        <p id="ingredients"></p>
-                    </details>
                     <details open>
                         <summary>Information nutritionnelle pour 100g</summary>
                         <table id="nutrition">
@@ -53,6 +48,10 @@
                         </table>
                     </details>
                     <details open>
+                        <summary>Ingrédients</summary>
+                        <p id="ingredients"></p>
+                    </details>
+                    <details open>
                         <summary>Alergènes</summary>
                         <p id="alergene"></p>
                     </details>
@@ -61,7 +60,7 @@
         </main>
         <footer>
             <ul>
-                <li><a href="../../index.html">Menu principale</a></li>
+                <li><a href="/index.html">Menu principale</a></li>
                 <li> <a href="#haut">Haut de page </a></li>
             </ul>
             <p> Réaliser avec Sass et typescript</p>

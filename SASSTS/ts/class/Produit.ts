@@ -1,140 +1,315 @@
-import { ProductData } from "../type/ProductData";
-
+import { ProductData } from '../type/ProductData';
+/**
+ * toutes les information nécessaire a l'affichage
+ * @export
+ * @class Produit
+ */
 export class Produit {
-	img: string = "../images/logoLegume.webp";
-	nom: string = "";
-	producteur: string = "";
-	quantite: string = "";
-	ingredient: string = "";
-	alergenes: string = "";
-	nutriscore: string = "../images/nutriscore-X.svg";
-	nova: string = "../images/novaX.svg";
-	ecoscore: string = "../images/ecoscore-X.svg";
-	energy: string = "";
-	sugars: string = "";
-	salt: string = "";
-	fat: string = "";
-	satured: string = "";
+	regexScoreLettre: RegExp = /^[a-e]$/;
+	img: string = '../images/logoLegume.webp';
+	nom: string = '';
+	producteur: string = '';
+	quantite: string = '';
+	ingredient: string = '';
+	alergenes: string = '';
+	nutriscore: string = '../images/nutriscore-X.svg';
+	nova: string = '../images/novaX.svg';
+	ecoscore: string = '../images/ecoscore-X.svg';
+	energy: string = '';
+	sugars: string = '';
+	salt: string = '';
+	fat: string = '';
+	satured: string = '';
+	/**
+	 * constructeur de la class Produit
+	 * @param resultat
+	 */
 	constructor(resultat: ProductData) {
 		if (resultat) {
-			if (resultat.product.image_url) {
-				this.img = resultat.product.image_url;
-			}
-			if (resultat.product.product_name) {
-				this.nom = resultat.product.product_name;
-			}
-			if (resultat.product.brands) {
-				this.producteur = resultat.product.brands;
-			}
-			if (resultat.product.quantity) {
-				this.quantite = resultat.product.quantity;
-			}
-			if (resultat.product.ingredients_text_fr) {
-				this.ingredient = resultat.product.ingredients_text_fr;
-			} else if (resultat.product.ingredients_text) {
-				this.ingredient = resultat.product.ingredients_text;
-			}
-			if (resultat.product.allergens_tags) {
-				const alergenesLst = resultat.product.allergens_tags;
-				let listAlergenes = "";
-				for (let element of alergenesLst) {
-					listAlergenes += element.substring(3) + ", ";
-				}
-				this.alergenes = listAlergenes;
-			}
-			const regexScoreLettre: RegExp = /[a,b,c,d,e]/;
-			if (resultat.product.nutriscore_grade && regexScoreLettre.test(resultat.product.nutriscore_grade)) {
-				this.nutriscore = "../images/nutriscore-" + resultat.product.nutriscore_grade + ".svg";
-			}
-			if (resultat.product.nova_group && resultat.product.nova_group <= 4 && resultat.product.nova_group >= 1) {
-				this.nova = "../images/nova" + resultat.product.nova_group + ".svg";
-			}
-			if (resultat.product.ecoscore_grade && regexScoreLettre.test(resultat.product.ecoscore_grade)) {
-				this.ecoscore = "../images/ecoscore-" + resultat.product.ecoscore_grade + ".svg";
-			}
-			if (resultat.product["energy-kcal_100g"]) {
-				const energie100g = resultat.product["energy-kcal_100g"];
-				const ajr = " (" + energie100g / 20 + "% des AJR)";
-				this.energy = "<td>Calories : </td><td>" + energie100g + " kcal</td><td>" + ajr + "</td>";
-			}
-			if (resultat.product.sugars_100g && resultat.product.nutrient_levels.sugars) {
-				this.sugars =
-					"<td>Glucides : </td><td>" +
-					resultat.product.sugars_100g +
-					" g</td><td>" +
-					this.nutrimentlvl(resultat.product.nutrient_levels.sugars) +
-					"</td>";
-			}
-			if (resultat.product.salt_100g && resultat.product.nutrient_levels.salt) {
-				this.salt =
-					"<td>Sodium : </td><td>" +
-					resultat.product.salt_100g +
-					" g</td><td>" +
-					this.nutrimentlvl(resultat.product.nutrient_levels.salt) +
-					"</td>";
-			}
-			if (resultat.product.fat_100g && resultat.product.nutrient_levels.fat) {
-				this.fat =
-					"<td>Lipides :  </td><td>" +
-					resultat.product.fat_100g +
-					" g</td><td>" +
-					this.nutrimentlvl(resultat.product.nutrient_levels.fat) +
-					"</td>";
-			}
-			if (resultat.product["saturated-fat_100g"] && resultat.product.nutrient_levels["saturated-fat"]) {
-				this.satured =
-					"<td>Acide gras saturés : </td><td>" +
-					resultat.product["saturated-fat_100g"] +
-					" g</td><td>" +
-					this.nutrimentlvl(resultat.product.nutrient_levels["saturated-fat"]) +
-					"</td>";
-			}
+			this.setImage(resultat.product.image_url);
+			this.setNom(resultat.product.product_name);
+			this.setProducteur(resultat.product.brands);
+			this.setQuantity(resultat.product.quantity);
+			this.setIngredient(resultat.product.ingredients_text_fr, resultat.product.ingredients_text);
+			this.setAlergene(resultat.product.allergens_tags);
+			this.setNutriscores(resultat.product.nutriscore_grade);
+			this.setNova(resultat.product.nova_group);
+			this.setEcoscore(resultat.product.ecoscore_grade);
+			this.setEnergy(resultat.product['energy-kcal_100g']);
+			this.setSugars(resultat.product.sugars_100g, resultat.product.nutrient_levels.sugars);
+			this.setSalt(resultat.product.salt_100g, resultat.product.nutrient_levels.salt);
+			this.setFat(resultat.product.fat_100g, resultat.product.nutrient_levels.fat);
+			this.setSaturated(
+				resultat.product['saturated-fat_100g'],
+				resultat.product.nutrient_levels['saturated-fat']
+			);
 		}
 	}
-	afficherProduit() {
-		const imageProduit = document.getElementById("img-produit") as HTMLImageElement;
-		imageProduit.src = this.img;
-		const nomProduit = document.getElementById("nom-produit") as HTMLElement;
-		nomProduit.innerText = this.nom;
-		const nomProducteur = document.getElementById("nom-producteur") as HTMLElement;
-		nomProducteur.innerText = this.producteur;
-		const quantity = document.getElementById("quantity") as HTMLElement;
-		quantity.innerText = this.quantite;
-		const ingredients = document.getElementById("ingredients") as HTMLElement;
-		ingredients.innerText = this.ingredient;
-		const alergenes = document.getElementById("alergene") as HTMLElement;
-		alergenes.innerHTML = this.alergenes;
-		this.afficherScore();
-		this.afficherNutriment();
+	/**
+	 * setter image
+	 *
+	 * @param {string} image_url
+	 * @memberof Produit
+	 */
+	setImage(image_url: string) {
+		if (image_url) {
+			this.img = image_url;
+		}
 	}
-	afficherScore() {
-		const imageNutriscore = document.getElementById("img-nutriscore") as HTMLImageElement;
+	/**
+	 * setter nom
+	 *
+	 * @param {string} product_name
+	 * @memberof Produit
+	 */
+	setNom(product_name: string) {
+		if (product_name) {
+			this.nom = product_name;
+		}
+	}
+	/**
+	 * setter producteur
+	 *
+	 * @param {string} brands
+	 * @memberof Produit
+	 */
+	setProducteur(brands: string) {
+		if (brands) {
+			this.producteur = brands;
+		}
+	}
+	/**
+	 * setter quantity
+	 *
+	 * @param {string} quantity
+	 * @memberof Produit
+	 */
+	setQuantity(quantity: string) {
+		if (quantity) {
+			this.quantite = quantity;
+		}
+	}
+	/**
+	 * setter ingredient
+	 *
+	 * @param {string} ingredients_text_fr
+	 * @param {string} ingredients_text
+	 * @memberof Produit
+	 */
+	setIngredient(ingredients_text: string, ingredients_text_fr: string) {
+		if (ingredients_text_fr) {
+			this.ingredient = ingredients_text_fr;
+		} else if (ingredients_text) {
+			this.ingredient = ingredients_text;
+		}
+	}
+	/**
+	 * setter Alergene
+	 *
+	 * @param {Array<string>} allergens_tags
+	 * @memberof Produit
+	 */
+	setAlergene(allergens_tags: Array<string>) {
+		if (allergens_tags) {
+			const alergenesLst = allergens_tags;
+			let listAlergenes = '';
+			for (let element of alergenesLst) {
+				listAlergenes += element.substring(3) + ', ';
+			}
+			this.alergenes = listAlergenes;
+		}
+	}
+	/**
+	 * setter nutriscore
+	 *
+	 * @param {string} nutriscore_grade
+	 * @memberof Produit
+	 */
+	setNutriscores(nutriscore_grade: string) {
+		if (nutriscore_grade && this.regexScoreLettre.test(nutriscore_grade)) {
+			this.nutriscore = '/images/nutriscore-' + nutriscore_grade + '.svg';
+		}
+	}
+	/**
+	 * setter Nova
+	 *
+	 * @param {number} nova_group
+	 * @memberof Produit
+	 */
+	setNova(nova_group: number) {
+		if (nova_group && nova_group <= 4 && nova_group >= 1) {
+			this.nova = '/images/nova' + nova_group + '.svg';
+		}
+	}
+	/**
+	 * setter ecoscore
+	 *
+	 * @param {string} ecoscore_grade
+	 * @memberof Produit
+	 */
+	setEcoscore(ecoscore_grade: string) {
+		if (ecoscore_grade && this.regexScoreLettre.test(ecoscore_grade)) {
+			this.ecoscore = '/images/ecoscore-' + ecoscore_grade + '.svg';
+		}
+	}
+	/**
+	 * setter energy
+	 *
+	 * @param {number} energy
+	 * @memberof Produit
+	 */
+	setEnergy(energy: number) {
+		if (energy) {
+			const ajr = ' (' + energy / 20 + '% des AJR)';
+			this.energy = '<td>Calories : </td><td>' + energy + ' kcal</td><td>' + ajr + '</td>';
+		}
+	}
+	/**
+	 * setter sugars
+	 *
+	 * @param {number} sugars_100g
+	 * @param {string} sugars
+	 * @memberof Produit
+	 */
+	setSugars(sugars_100g: number, sugars: string) {
+		if (sugars_100g && sugars) {
+			this.sugars =
+				'<td>Glucides : </td><td>' + sugars_100g + ' g</td><td>' + this.nutrimentlvl(sugars) + '</td>';
+		}
+	}
+	/**
+	 * setter salt
+	 *
+	 * @param {number} salt_100g
+	 * @param {string} salt
+	 * @memberof Produit
+	 */
+	setSalt(salt_100g: number, salt: string) {
+		if (salt_100g && salt) {
+			this.salt = '<td>Sodium : </td><td>' + salt_100g + ' g</td><td>' + this.nutrimentlvl(salt) + '</td>';
+		}
+	}
+	/**
+	 * setter fat
+	 *
+	 * @param {number} fat_100g
+	 * @param {string} fat
+	 * @memberof Produit
+	 */
+	setFat(fat_100g: number, fat: string) {
+		if (fat_100g && fat) {
+			this.fat = '<td>Lipides :  </td><td>' + fat_100g + ' g</td><td>' + this.nutrimentlvl(fat) + '</td>';
+		}
+	}
+	/**
+	 * setter Saturated fat
+	 *
+	 * @param {number} saturated_100g
+	 * @param {string} saturated
+	 * @memberof Produit
+	 */
+	setSaturated(saturated_100g: number, saturated: string) {
+		if (saturated_100g && saturated) {
+			this.satured =
+				'<td>Acide gras saturés : </td><td>' +
+				saturated_100g +
+				' g</td><td>' +
+				this.nutrimentlvl(saturated) +
+				'</td>';
+		}
+	}
+	/**
+	 *affiche le produit dans la page
+	 *
+	 * @memberof Produit
+	 */
+	afficherProduit() {
+		this.afficherImage();
+		this.afficherNom();
+		this.afficherProducteur();
+		this.afficherQuantity();
+		this.afficherIngredient();
+		this.afficherAlergene();
+		this.afficherNutriscore();
+		this.afficherNova();
+		this.afficherEcoscore();
+		this.afficherEnergie();
+		this.afficherSucre();
+		this.afficherSel();
+		this.afficherGraisse();
+		this.afficherSaturer();
+	}
+	afficherImage() {
+		const imageProduit = document.getElementById('img-produit') as HTMLImageElement;
+		imageProduit.src = this.img;
+	}
+	afficherNom() {
+		const nomProduit = document.getElementById('nom-produit') as HTMLElement;
+		nomProduit.innerText = this.nom;
+	}
+	afficherProducteur() {
+		const nomProducteur = document.getElementById('nom-producteur') as HTMLElement;
+		nomProducteur.innerText = this.producteur;
+	}
+	afficherQuantity() {
+		const quantity = document.getElementById('quantity') as HTMLElement;
+		quantity.innerText = this.quantite;
+	}
+	afficherIngredient() {
+		const ingredients = document.getElementById('ingredients') as HTMLElement;
+		ingredients.innerText = this.ingredient;
+	}
+	afficherAlergene() {
+		const alergenes = document.getElementById('alergene') as HTMLElement;
+		alergenes.innerHTML = this.alergenes;
+	}
+	afficherNutriscore() {
+		const imageNutriscore = document.getElementById('img-nutriscore') as HTMLImageElement;
 		imageNutriscore.src = this.nutriscore;
-		const imageNova = document.getElementById("img-nova") as HTMLImageElement;
+	}
+	afficherNova() {
+		const imageNova = document.getElementById('img-nova') as HTMLImageElement;
 		imageNova.src = this.nova;
-		const imgEcoscore = document.getElementById("img-ecoscore") as HTMLImageElement;
+	}
+	afficherEcoscore() {
+		const imgEcoscore = document.getElementById('img-ecoscore') as HTMLImageElement;
 		imgEcoscore.src = this.ecoscore;
 	}
-	afficherNutriment() {
-		const energy = document.getElementById("energy") as HTMLElement;
+	afficherEnergie() {
+		const energy = document.getElementById('energy') as HTMLElement;
 		energy.innerHTML = this.energy;
-		const sucre = document.getElementById("sugars") as HTMLElement;
+	}
+	afficherSucre() {
+		const sucre = document.getElementById('sugars') as HTMLElement;
 		sucre.innerHTML = this.sugars;
-		const salt = document.getElementById("salt") as HTMLElement;
+	}
+	afficherSel() {
+		const salt = document.getElementById('salt') as HTMLElement;
 		salt.innerHTML = this.salt;
-		const fat = document.getElementById("fat") as HTMLElement;
+	}
+	afficherGraisse() {
+		const fat = document.getElementById('fat') as HTMLElement;
 		fat.innerHTML = this.fat;
-		const saturated = document.getElementById("saturated-fat") as HTMLElement;
+	}
+	afficherSaturer() {
+		const saturated = document.getElementById('saturated-fat') as HTMLElement;
 		saturated.innerHTML = this.satured;
 	}
-	nutrimentlvl(level: string): String {
+	/**
+	 * renvoi une pastille de couleur en fonction de niveau de qualité
+	 *
+	 * @param {string} level
+	 * @return {string}
+	 * @memberof Produit
+	 */
+	nutrimentlvl(level: string): string {
 		switch (level) {
-			case "low":
-				return " 🟢";
-			case "moderate":
-				return " 🟠";
-			case "high":
-				return " 🔴";
+			case 'low':
+				return ' 🟢';
+			case 'moderate':
+				return ' 🟠';
+			case 'high':
+				return ' 🔴';
 		}
 		return level;
 	}

@@ -74,7 +74,7 @@ main #resultat {
   flex-direction: row;
   flex-wrap: wrap;
 }
-main #resultat aside {
+main #resultat #info-produit {
   border-radius: 0.5em;
   background-color: white;
   padding: 0.5em;

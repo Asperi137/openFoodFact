@@ -1,3 +1,7 @@
+/**
+ * type correspondant à la recherche
+ */
+
 export type ProductData = {
 	code: string;
 	product: {
